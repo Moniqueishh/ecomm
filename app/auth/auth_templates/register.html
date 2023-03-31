@@ -1,28 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-4 pb-4 pt-3">
-        <h1>Sign Up below!</h1>
+
+<div class="container-fluid pt-5">
+    <div class="row">
+        <div class="col">
         </div>
+        <div class="col-6 bg-white pb-4">
+            <div class="card-body my-sign-up-card">
+                <h1 class="card-title"><b>Register</b></h1>
+                
+                <form method="POST">
+                    <div class="form-floating mb-3 pt-3 pb-3" >
+                        <i class="icon fa-regular fa-user fa-sm"></i>
+                        <!-- <input type="text" class="form-control"method="POST"> -->
+                        {{ form.hidden_tag() }} 
+
+                        {{ form.username(class='form-control', placeholder='Username') }}   
+                    </div>
+                    <div class="form-floating mb-3 pb-3" >
+                        <i class="icon fa-regular fa-user fa-sm"></i>
+                        <!-- <input type="text" class="form-control"method="POST"> -->
+                        {{ form.hidden_tag() }} 
+
+                        {{ form.email(class='form-control', placeholder='Email') }}   
+                    </div>
+                    <div class="form-floating mb-3 pb-3">
+                        <i class="icon fa-regular fa-envelope fa-sm"></i>
+                        <!-- <input type="email" class="form-control"method="POST">-->
+                        {{ form.hidden_tag() }}
+                        {{ form.password(class='form-control', placeholder='Password') }}
+                    </div>
+                    <div class="form-floating mb-3 pb-3">
+                        <i class="icon fa-regular fa-envelope fa-sm"></i>
+                        <!-- <input type="email" class="form-control"method="POST">-->
+                        {{ form.hidden_tag() }}
+                        {{ form.confirm_password(class='form-control', placeholder='Confirm Password') }}
+                    </div>
+                    <div class="sign-in-button pb-4">
+                        {{ form.submit(class= 'btn-primary') }}
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="col"></div>
     </div>
 </div>
-<div class="container">
-    <div class="row justify-content-center">
-        <form method="POST" class="col-4">
-            {{ form.hidden_tag() }} <!--This gives us the ability to use the secret key-->
-
-            {{ form.username(class='form-control', placeholder='Username') }}
-            {{ form.email(class='form-control', placeholder='Email') }}
-            {{ form.password(class='form-control', placeholder='Password') }}
-            {{ form.confirm_password(class='form-control', placeholder='Confirm Password') }}
-            {{ form.submit(class= 'btn-primary', placeholder= 'Submit') }}
-
-        </form>
-
-    </div>
-</div>
-
-
 {% endblock %}
