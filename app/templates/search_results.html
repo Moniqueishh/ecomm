@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container pt-4 align-content-center">
+    <div class="row">
+    
+    <div class="col"></div>
+        <div class="col-8 text-center">
+<h1 class="text-center">See <b>{{ pokemon_dict["Name"] }}</b> below!</h1></div>
+<div class="col"></div>
+    </div>
+</div>
+<hr>
+
+<div class="container pt-4 align-content-center">
+    <div class="row">
+
+        <div class="col"></div>
+    <div class="col-8 text-center ">
+        
+        <div class="card" style="width: 18rem;">
+            <img src= '{{  pokemon_dict["Front Shiny"]  }}' class="card-img-top" alt="pic of pokemon">
+            <div class="card-body">
+              <h5 class="card-title text-uppercase text-center">{{ pokemon_dict["Name"] }}</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Ability: {{  pokemon_dict["Ability"]  }}</li>
+              <li class="list-group-item">Base XP: {{  pokemon_dict["Base XP"]  }}</li>
+              <li class="list-group-item">Base ATK: {{  pokemon_dict["Base ATK"]  }}</li>
+              <li class="list-group-item">Base HP: {{  pokemon_dict["Base HP"]  }}</li>
+              <li class="list-group-item">Base DEF: {{  pokemon_dict["Base DEF"]  }}</li>
+            </ul>
+          </div>
+    </div>
+
+
+        <!-- <h1>Name: {{ pokemon_dict["Name"] }}</h1>
+        <h2>Ability: {{  pokemon_dict["Ability"]  }}</h2>
+        <h2>Base XP: {{  pokemon_dict["Base XP"]  }}</h2>
+        <h2>Front Shiny: <a href='{{  pokemon_dict["Front Shiny"]  }}' class="link-dark">Front Shiny link</a></h2>
+        <h2>Base ATK: {{  pokemon_dict["Base ATK"]  }}</h2>
+        <h2>Base HP: {{  pokemon_dict["Base HP"]  }}</h2>
+        <h2>Base DEF: {{  pokemon_dict["Base DEF"]  }}</h2> -->
+      <div class="col"></div>
+    </div>
+</div>
+
+
+    
+  </div>
+</div>
+
+{% endblock %}
