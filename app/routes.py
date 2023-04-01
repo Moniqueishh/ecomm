@@ -41,3 +41,4 @@ def searchPage():
                 return "The pokemon you're looking for does not exist."
 
     return render_template("search.html", form = form)
+

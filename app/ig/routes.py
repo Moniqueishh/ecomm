@@ -16,9 +16,10 @@ def store():
 @ig.route('/cart')
 # @login_required
 def cart():
+    c_list= current_user.carts.all()
     # product = Product.query.order_by(Product.date_created).all()[::-1]
     # print(product)
-    return render_template('cart.html')
+    return render_template('cart.html', c=c_list)
 
 
 @ig.route('/product/create', methods=['GET', 'POST'])
@@ -39,13 +40,13 @@ def createItem():
     return render_template('create_product.html', form=form)
 
 
-@ig.route('/product/<int:product_id>')
-def indProduct(product_id):
-    product = Product.query.get(product_id)
-    if product:
-        return render_template('product.html', p=product)
-    else:
-        return redirect(url_for('ig.store'))
+@ig.route('/product')
+def indProduct():
+    product = Product.query.order_by(Product.date_created).all()
+    # if product:
+    return render_template('product.html', product=product)
+    # else:
+    #     return redirect(url_for('ig.store'), product_id=product_id)
     
 @ig.route('/product/update/<int:product_id>', methods=['GET', 'POST'])
 def updateProduct(product_id):
@@ -79,3 +80,17 @@ def deletePost(product_id):
     else:
         print("You cannot delete a post that isn't yours")
     return redirect(url_for('ig.store'))
+
+@ig.route('/posts/like/<int:product_id>')
+@login_required
+def addP(product_id):
+    product= Product.query.get(product_id)
+    my_p = current_user.carts.all()
+    print(my_p)
+    if product in my_p:
+        flash(f"This item is already in your cart!", category='warning')
+    else:
+        current_user.addCart(product)
+        flash(f"Succesfully caught!", category='success')
+    return redirect(url_for('ig.cart') )
+

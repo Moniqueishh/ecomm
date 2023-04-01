@@ -6,12 +6,22 @@ from werkzeug.security import generate_password_hash
 
 db = SQLAlchemy()
 
+cart = db.Table(
+    'cart',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), nullable=False),
+    db.Column('product_id', db.Integer, db.ForeignKey('product.id'), nullable=False)
+)
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
     email = db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
-    post = db.relationship('Product', backref='product', lazy=True)
+    product = db.relationship('Product', backref='product', lazy=True)
+    carts = db.relationship('Product',
+                            secondary='cart',
+                            backref='carts',
+                            lazy='dynamic')
 
 #as an example for backref
 #with the post below
@@ -26,6 +36,14 @@ class User(db.Model, UserMixin):
 
     def saveUser(self):
         db.session.add(self)
+        db.session.commit()
+
+    def unCart(self, product):
+        self.carts.remove(product)
+        db.session.commit()
+    
+    def addCart(self, product):
+        self.carts.append(product)
         db.session.commit()
 
 

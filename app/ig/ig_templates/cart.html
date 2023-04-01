@@ -5,9 +5,19 @@
 <div class="container pt-4">
     <div class="row">
 <h1>YOUR CART</h1>
+<div>
+  {% for p in c%}
+  <div class="card" style="width: 18rem;">
+    <img src="{{ p.img_url }}" class="card-img-top" alt="{{ p.title }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ p.title }}</h5>
+        <p class="card-text">{{ p.body }}</p>
+
+</div>
 </div>
 </div>
 
+{%endfor%}
 
 <section class="h-100 h-custom">
     <div class="container h-100 py-5">
