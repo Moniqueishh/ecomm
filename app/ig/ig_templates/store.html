@@ -2,7 +2,22 @@
 
 {% block content %}
 
-<div class="container">
+{%for p in product%}
+<div class="card" style="width: 18rem;">
+  <a href="{{ url_for('ig.indPost', product_id=p.id) }}"><img src="{{ p.img_url }}" class="card-img-top"
+      alt="{{ p.title }}"></a>
+  <div class="card-body">
+    <h5 class="card-title">{{ p.title }}</h5>
+    <p class="card-text">{{ p.body }}</p>
+    <a href="{{ url_for('ig.addP', product_id=p.id) }}" class="btn btn-primary">Add to cart!</a>
+
+
+    {%endfor%}
+
+
+
+
+    <!-- <div class="container">
   <div class="row">
     <div class="col pt-4 pb-4">
 <h1>T-shirts</h1>
@@ -88,7 +103,7 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->
 
     <!-- {% for p in posts %}
         <div class="card" style="width: 18rem;">
@@ -104,4 +119,4 @@
     {% endfor %} -->
 
 
-{% endblock %}
+    {% endblock %}

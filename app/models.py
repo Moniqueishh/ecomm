@@ -21,7 +21,8 @@ class User(db.Model, UserMixin):
     carts = db.relationship('Product',
                             secondary='cart',
                             backref='carts',
-                            lazy='dynamic')
+                            lazy='dynamic',
+                            cascade= 'all')
 
 #as an example for backref
 #with the post below
@@ -40,6 +41,13 @@ class User(db.Model, UserMixin):
 
     def unCart(self, product):
         self.carts.remove(product)
+        db.session.commit()
+
+    def clearCart(self):
+        self.carts=[]
+        # x=self.carts.all()
+        # x.clear()
+        # self.carts=x
         db.session.commit()
     
     def addCart(self, product):
