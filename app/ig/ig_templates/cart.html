@@ -51,7 +51,7 @@
                     <p class="mb-0" style="font-weight: 500;">$20.00</p>
                   </td>
                   <td class="align-middle">
-                    <a href="#" class="btn btn-primary float-right">Remove</a>
+                    <a href="{{ url_for('ig.releaseP', product_id=p.id) }}" class="btn btn-primary float-right">Remove</a>
                   </td>
                 </tr>
                 {%endfor%}
