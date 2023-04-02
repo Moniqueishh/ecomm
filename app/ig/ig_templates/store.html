@@ -1,23 +1,95 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<link rel="stylesheet" href="{{ url_for('static', filename= 'store/store.css') }}">
+<!-- <h1 class="title">T-Shirts</h1> -->
 {%for p in product%}
-<div class="card" style="width: 18rem;">
+<!-- <div class="card" style="width: 18rem;">
   <a href="{{ url_for('ig.indPost', product_id=p.id) }}"><img src="{{ p.img_url }}" class="card-img-top"
       alt="{{ p.title }}"></a>
   <div class="card-body">
     <h5 class="card-title">{{ p.title }}</h5>
     <p class="card-text">{{ p.body }}</p>
-    <a href="{{ url_for('ig.addP', product_id=p.id) }}" class="btn btn-primary">Add to cart!</a>
+    <a href="{{ url_for('ig.addP', product_id=p.id) }}" class="btn btn-primary">Add to cart!</a>-->
+
+<!-- <div class="container"> -->
+<!-- <div class="row"> -->
+
+  <section style="background-color: #eee;">
+    <div class="info">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <!-- <div class="col-md-8 col-lg-6 col-xl-4"> -->
+          <div class="card text-black">
+            <!-- <i class="fab fa-apple fa-lg pt-3 pb-1 px-3"></i> -->
+           <a href="{{ url_for('ig.indPost', product_id=p.id) }}"><img class ="picture" src= "{{ p.img_url }}"
+              class="card-img-top" alt="Sour Worms Shirt" /></a>
+            <div class="card-body">
+              <div class="text-center">
+                <h2 class="card-title">{{ p.title }}</h2>
+              </div>
+              <div class="text-center">
+                <h4 class="card-title">{{ p.body.title() }}</h4>
+              </div>
+              <div>
+                <br>
+                <div class="d-flex justify-content-center">
+                  <span></span><span class="h3">$20</span>
+                </div>
+                <!-- <div id="textSelectdiv" class="d-flex justify-content-center">
+                    <select id="textSelect" class="select" style="display: inline;">
+                      <option value="1">Small</option>
+                      <option value="2">Medium</option>
+                      <option value="3">Large</option>
+                      <option value="4">XL</option>
+                    </select>
+                  </div> -->
+                  <br>
+                  <br>
+                  <div id="inputDiv" class="form-outline disaplayInput">
+                    <input type="text" id="form12" class="form-control" style="display: none;" onblur="hideInput()" disabled />
+                  </div>
+                <!-- <div class="d-flex justify-content-between">
+                  <span>Pro stand</span><span>$999</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span>Vesa Mount Adapter</span><span>$199</span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between total font-weight-bold mt-4">
+                <span>Total</span><span>$7,197.00</span> -->
+              </div>
+              <div class="link">
+              <a href="{{ url_for('ig.addP', product_id=p.id) }}" class="button btn btn-primary d-flex justify-content-center">Add to cart!</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
 
 
-    {%endfor%}
+<!-- <div class="col pt-4 pb-4">
+  <div class="container">
+    <div class="row row-cols-3 ">
+      <div class="col">
+        <div class="card">
+          <a href="{{ url_for('ig.indPost', product_id=p.id) }}"><img src="{{ p.img_url }}" class="card-img-top"> </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ p.body.title() }}</h5>
+            <a href="{{ url_for('ig.addP', product_id=p.id) }}" class="btn btn-primary">Add to cart!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  {%endfor%}
 
 
 
 
-    <!-- <div class="container">
+  <!-- <div class="container">
   <div class="row">
     <div class="col pt-4 pb-4">
 <h1>T-shirts</h1>
@@ -105,7 +177,7 @@
 </div>
 </div> -->
 
-    <!-- {% for p in posts %}
+  <!-- {% for p in posts %}
         <div class="card" style="width: 18rem;">
           <a href="{{ url_for('ig.indPost', post_id=p.id) }}" ><img src="{{ p.img_url }}" class="card-img-top" alt="{{ p.title }}"></a>
             <div class="card-body">
@@ -119,4 +191,4 @@
     {% endfor %} -->
 
 
-    {% endblock %}
+  {% endblock %}

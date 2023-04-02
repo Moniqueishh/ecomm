@@ -1,0 +1,38 @@
+.title {
+    text-align: center;
+    background-color: #eee;
+    margin-bottom: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+   
+}
+
+.picture {
+    width: 285px;
+    height: 250px;
+    padding-bottom: 40px;
+    padding-left: 90px;
+}
+
+.button {
+    width: 200px;
+}
+
+.link{ 
+    padding-left: 395px;
+    padding-bottom: 30px;
+}
+
+.info{
+    /* display: flexbox;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    float: inline-end; */
+    /* width: 800px; */
+}
